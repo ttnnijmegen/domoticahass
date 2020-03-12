@@ -144,16 +144,95 @@ Your Home Assistant is now active
 
 
 ## Step 6 Adding a The Things Sensor node
+On basis of this tutorial a sensor can be added to HASS: [HASS and TTN](https://www.home-assistant.io/integrations/thethingsnetwork/)
 
 Within home assistant you can add ADD-ONS. 
 
 Go to Hass.io in the side panel and click on the tab "ADD-ONS" 
 
-Here 
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/ADDAADDON.png)
 
-a) OpenSSH - Terminal
+The ADD-ON you will first install is Terminal. 
 
-Installeer en klik op schuiver openen in zijkant
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/INSTALLTERMINAL.png)
+
+Search for terminal or ssh in the search bar. 
+
+After installing ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/INSTALLOPENSSH.png) OpenSSH and Terminal
+
+You will add them to your sidebar and start this ADD-ON up in your home assistant system
+
+![image}(https://github.com/ttnnijmegen/domoticahass/blob/master/img/OPENSSHINSIDEBARSTART.png)
+
+When done you should see terminal appearing in your side bar. You can click on this
+
+A larger window will open where you will fill in a few commands to adjust your configurations.yaml.
+
+The configurations.yaml is used most settings regarding home assistant.
+
+Use the old DOS command to go to the folder where the yaml is located by typing 
+
+cd /config
+
+Look at what files are in the folder by typing ls
+
+After this you can open the YAML file with the Linux text editor "NANO" by typing in 
+
+nano configurations.yaml
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/USETERMINALTOADJUSTYAML.png)
+
+In the YAML file you should add the sensor by adding the following code:
+
+########
+
+# adding the TTN add-on
+thethingsnetwork:
+  app_id: lorakiss
+  access_key: ttn-account-v2.Uo4q7SSN6m7I7PQMoomRSKwvOoWRUqahlqqOYEXwOdo
+
+# adding the sensor entity and values
+sensor:
+  - platform: thethingsnetwork
+    device_id: 05
+    values:
+      accelerometer_6.x: X movement
+      accelerometer_6.y: Y movement
+      accelerometer_6.z: Z movement
+      analog_in_2: Potentio meter?
+      digital_in_1:
+      luminosity_5: Light intensity
+      relative_humidity_3: Relative humidity
+      temperature_4: Temperature
+########
+
+The file should look like this:
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/AddingTTNApplicationAndDeviceSensorToYAML.png)
+
+(the header comments differ)
+
+You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configurations.yaml file. 
+
+After these changes reboot the system for them to take effect.
+(hass.io==>system==>reboot)
+
+The rebooted system now has the sensors activated. 
+
+You can add them to your dashboard by changing your dashboard configuration:
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/ConfiguringDashBoard.png)
+
+And adding a card by clicking the + sign and adding a sensor card
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/AddingACardInTheDashBoard.png)
+
+You can now add the different sensor entities to your dashboard
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/LoRaKISSSensorAsEntity.png)
+
+
+## Step 6 automation with node red ==> verder uitwerken met een leuke automation die relevant is (e.g. licht levels na zonsondergang omhoog geven aan dat er iemand in HS is. of temperatuur controle voor 3D printen)
 
 b) NODE-RED
 
@@ -166,68 +245,16 @@ credential_secret: 'HASS'
 Save
 
 
-monitor raspberry pi ==> bij test ligt TTN eruit
-
-```
-# Example configuration.yaml entry
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-```
-
-## 5 ) Installatie van HACS ==> beter uitzoeken hoe goed het werkt
-
-Adding a TTN node to Home Assistant
-
-On basis of this tutorial a sensor can be added to HASS: [HASS and TTN](https://www.home-assistant.io/integrations/thethingsnetwork/)
-
-We already made an sensor for you available to use: 
-
-By using terminal in the side panel you can add the specifications to the configuration.yaml file:
-
-(add printscreen here)
-
-```
-thethingsnetwork:
-  app_id: lorakiss
-  access_key: ttn-account-v2.Uo4q7SSN6m7I7PQMoomRSKwvOoWRUqahlqqOYEXwOdo
-
-sensor:
-  - platform: thethingsnetwork
-    device_id: 05
-    values:
-
-      accelerometer_6.x: X movement
-      accelerometer_6.y: Y movement
-      accelerometer_6.z: Z movement
-      analog_in_2: Potentio meter?
-      digital_in_1:
-      luminosity_5: Light intensity
-      relative_humidity_3: Relative humidity
-      temperature_4: Temperature
-```
-
-Now you can restart your home assistant system with supervisor and view your dashboard. Here you can add a card. 
-
-At the entities you will seen the sensors.
-
-(add printscreen here)
-
-- Gateway toevoegen, zie https://github.com/cyberjunky/home-assistant-ttn_gateway
-- copy via ssh van git in repository map
-- pas yaml aan
-- Check op deze link wat in te vullen in de configurations.yaml (verander IP adres) en in de group.yaml
-- herstart hass
-
-## 6 ) installatie HACS
+## Step 7 Installatie van HACS and installing the kickstarter gateway monitor ==> beter uitzoeken hoe goed het werkt
 
 For terminal installation via SSH see <https://beta--hacs.netlify.com/installation/terminal>
 
 - https://www.youtube.com/channel/UC7G4tLa4Kt6A9e3hJ-HO8ng
 - https://peyanski.com/home-assistant-themes-and-plugins-with-hacs/
+
+
+## add the kickstarter gateway you your Home Assistant Dashboard
+- Gateway toevoegen, zie https://github.com/cyberjunky/home-assistant-ttn_gateway
 
 wanne have hacs
 
