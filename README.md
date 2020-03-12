@@ -129,6 +129,8 @@ Also download and install balena etcher from [this](https://www.balena.io/etcher
 
 When done, use balena etcher to etch the downloaded image from HASS.IO on the SD card. 
 
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/screenshotbalenaetcherMacOS.png)
+
 ## Step 5 Starting up your Raspberry PI with HASS.IO
 
 After you put both the SD card and the USB stick with the network specifications in you Raspberry PI. U can powerup your Raspberry PI.
