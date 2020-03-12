@@ -81,9 +81,9 @@ You can also use the diskutility (MacOS) or .... {E} on Windows
 Make a folder on this disk called network en within this folder a file called my-network
 Your data structure should look like:
 
-
+```
 network/my-network
-
+```
 (? network/system-connections ?)
 
 The content of the file should have the following structure:
@@ -139,6 +139,35 @@ Just like with the USB stick trick (which we will use in the step below) you can
 ```
 \CONFIG\network\
 ```
+The content of the file should have the following structure:
+
+```
+[connection]
+id= HassOS-network
+uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> deze zelf genereren op: https://www.uuidgenerator.net>
+type=802-11-wireless
+
+[802-11-wireless]
+mode=infrastructure
+ssid=<MY_SSID>
+# Uncomment below if your SSID is not broadcasted
+#hidden=true
+
+[802-11-wireless-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=<MY_WLAN_SECRET_KEY>
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+```
+
+Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
+
 ## Step 5 Starting up your Raspberry PI with HASS.IO
 
 After you put both the SD card and the USB stick with the network specifications in you Raspberry PI. U can powerup your Raspberry PI.
