@@ -88,7 +88,7 @@ network/my-network
 
 The content of the file should have the following structure:
 
-#########
+```
 [connection]
 id= HassOS-network
 uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> deze zelf genereren op: https://www.uuidgenerator.net>
@@ -111,7 +111,7 @@ method=auto
 [ipv6]
 addr-gen-mode=stable-privacy
 method=auto
-#########
+```
 
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 
@@ -172,19 +172,24 @@ The configurations.yaml is used most settings regarding home assistant.
 
 Use the old DOS command to go to the folder where the yaml is located by typing 
 
+```
 cd /config
+```
 
-Look at what files are in the folder by typing ls
-
+Look at what files are in the folder by typing 
+```
+ls
+```
 After this you can open the YAML file with the Linux text editor "NANO" by typing in 
-
+```
 nano configurations.yaml
+```
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/USETERMINALTOADJUSTYAML.png)
 
 In the YAML file you should add the sensor by adding the following code:
 
-########
+```
 
 # adding the TTN add-on
 thethingsnetwork:
@@ -204,7 +209,7 @@ sensor:
       luminosity_5: Light intensity
       relative_humidity_3: Relative humidity
       temperature_4: Temperature
-########
+```
 
 The file should look like this:
 
