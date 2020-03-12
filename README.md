@@ -162,7 +162,7 @@ After installing ![image](https://github.com/ttnnijmegen/domoticahass/blob/maste
 
 You will add them to your sidebar and start this ADD-ON up in your home assistant system
 
-![image}(https://github.com/ttnnijmegen/domoticahass/blob/master/img/OPENSSHINSIDEBARSTART.png)
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/OPENSSHINSIDEBARSTART.png)
 
 When done you should see terminal appearing in your side bar. You can click on this
 
