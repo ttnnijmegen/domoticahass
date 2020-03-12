@@ -131,6 +131,14 @@ When done, use balena etcher to etch the downloaded image from HASS.IO on the SD
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/screenshotbalenaetcherMacOS.png)
 
+Because the SD card is not accessible on a MAC. You need to use the USB for your internet connection settings. The reason for this issue is explained on [this](https://github.com/home-assistant/operating-system/issues/110) link.
+
+The workaround is accessing the SD card via Linux by installing [Oracle virtual box](https://www.virtualbox.org/wiki/Downloads) and using an Linux image.
+
+Just like with the USB stick trick (which we will use in the step below) you can put a file named `my-network`in the folder:
+```
+\CONFIG\network\
+```
 ## Step 5 Starting up your Raspberry PI with HASS.IO
 
 After you put both the SD card and the USB stick with the network specifications in you Raspberry PI. U can powerup your Raspberry PI.
