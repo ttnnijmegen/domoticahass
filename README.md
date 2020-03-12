@@ -1,26 +1,19 @@
-
-Domotica workshop / maand
-
-
-# Domotica met Home Assistant
+# Domotica met Home Assistant en the Things Network
 
 ## Goal
 
-We will install Home Assistant on a Raspberry Pi (that you bring), and configure it such that data from an (existing) TTN Kiss sensor is received in the dashboard and can be used to trigger actions.
+We will install Home Assistant on a Raspberry Pi (which you bring with you), and configure it such that data from an (existing) TTN Kiss sensor is received in the dashboard and can be used to trigger actions.
 
-This time we will use an exiting TTN sensor node, one of the next times we will again implement a (plant sensor) node that would would also work with Home Assistant.
+This time we will use an exiting TTN sensor node, one of the next times we will again implement a sensor node that  would also work with Home Assistant.
 
 ## Devices to bring
 
-Your laptop.
-
-Raspberry Pi 3B or 4 with a matching power supply of minimal 2A. 
-
-Micro-SD card, we recommend at least a 32 GB SD card to avoid running out of space, and a SD card reader. The SD card needs to be of [Class A2](https://www.mymemory.co.uk/blog/a1-vs-a2-sandisk-microsd-card-whats-the-difference/). You can order such an SD card for example from [data.io](https://www.dataio.nl/sandisk-extreme-64gb-microsd-geheugenkaart-u3/?utm_campaign=SanDisk+Extreme+64GB+microSD+geheugenkaart+U3+A2+160MB/s&utm_content=&utm_source=googleshopping&utm_medium=cpc&utm_term=&gclid=EAIaIQobChMI4qTSmZWT6AIVEOJ3Ch0eegaFEAQYASABEgJh5vD_BwE).
-
-A USB stick is handy to exchange files between computers.
-
-An ESP8266 or ESP32 development board. We will use this as your personal network access point to access the Raspberry PI from, so that you can easily take your Raspberry Pi home without having to reconfigure the wireless. The ESP32 or ESP8266 device could e.g. be the WEMOS d1 mini that we have used in the previous workshop as location tracker. Or you could buy the plant sensor that we plan to use for one of the upcoming workshops: https://nl.aliexpress.com/item/32815782900.html
+- Your laptop.
+- Raspberry Pi 3B or 4 
+- Raspberry Pi matching power supply with a minimal power of 2A. 
+-  Micro-SD card, we recommend at least a 32 GB SD card to avoid running out of space, and a SD card reader. The SD card needs to be of [Class A2](https://www.mymemory.co.uk/blog/a1-vs-a2-sandisk-microsd-card-whats-the-difference/). You can order such an SD card for example from [data.io](https://www.dataio.nl/sandisk-extreme-64gb-microsd-geheugenkaart-u3/?utm_campaign=SanDisk+Extreme+64GB+microSD+geheugenkaart+U3+A2+160MB/s&utm_content=&utm_source=googleshopping&utm_medium=cpc&utm_term=&gclid=EAIaIQobChMI4qTSmZWT6AIVEOJ3Ch0eegaFEAQYASABEgJh5vD_BwE).
+- A USB stick is handy to exchange files between computers.(named CONFIG and FAT32 structured)
+- ESP8266 development board. We will use this as your personal network access point to access the Raspberry PI from, so that you can easily take your Raspberry Pi home without having to reconfigure the wireless. The ESP8266 device could e.g. be the WEMOS d1 mini that we have used in the previous workshop as location tracker. 
 
 You should also bring your home WiFi name (SSID) and password, so that we can configure the temporary network just like you have it at home. That ensures that you can take the Raspberry Pi home, and that it will connect automatically to your home wifi.
 
@@ -34,13 +27,11 @@ Use your mobile phone to make a WiFi hotspot. Configure it such that the SSID (n
 
 ## Step 1b (technical) - configure the wifi like home
 
-We will use an EP8266 or ESP32 to make a WiFi access point that provides NAT and internet access through the hacker space wifi network.
+We will use an EP8266 to make a WiFi access point that provides NAT and internet access through the hacker space wifi network.
 
-You will have to install drivers on your computer for the ESP32 and ESP8266 to work with arduino.
+You will have to install drivers on your computer for the ESP8266 to work with arduino.
 
-The steps will help you to install arduino on your laptop and get an ESP32 and ESP8266 node to work with arduino.
-
-For the ESP32 follow the instructions on [this](https://randomnerdtutorials.com/getting-started-with-esp32/) link
+The steps will help you to install arduino on your laptop and get an ESP8266 node to work with arduino.
 
 For the ESP8266 follow the instructions on [this](https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/) link 
 
@@ -72,64 +63,32 @@ You can also use the serial interface, e.g. using the Arduino IDE serial monitor
     save
     reset
     
-### ESP32
 
-See <https://github.com/martin-ger/esp32_nat_router>. Further details to be added. 
+## Step 3a - Configure the network settings by USB
 
-## Step 2 - install the hass image
-
-Download and install the hass (home assistant) disk image on the micro-SD card according to the intructions on <https://www.home-assistant.io/hassio/installation/>.
-
-
-# Verdere Aantekeningen:
-
-- Doorsturen LoraKiss
-- P1 met FTDI
-- ESPhome / Open mqtt gateway
-- temperatuur humidity
-- Speach opensource: https://mycroft.ai
-- Thermostaten == > robert goedkoop? ==> intgratie thermostaat
-- dmoticz => blockly beperkingen
-- cloud vs dmz => 
-
-Te testen: 
-
-- ESP of hotspot
-- USB mappen
-
-## 1 ) aanmaken van router om vanuit hier Raspberry met HASS.IO te kunnen benaderen.
-Installeer ESP32 op je laptop 
-
-/// onderstaand nog niet getest. uiteindelijk eerst HASS.IO op eigen systeem gezet.
-
-==> gewoon met arduino. Dit zodat ze later ook esp home kunnen installeren.
-==> NAT voorbeeld. ==> nog testen. niet gelukt. 
-
-Deze proberen. Webserver moet mDNS hebben:
-https://github.com/espressif/arduino-esp32/blob/master/libraries/ESPmDNS/examples/mDNS_Web_Server/mDNS_Web_Server.ino
-
-### tests
-https://github.com/pfalcon/esp-open-sdk
-
-```
-esptool.py --chip esp32 --port /dev/tty.usbserial-0001 --baud 115200 --before default_reset --after hard_reset write_flash  -z --flash_mode dio --flash_freq 40m --flash_size detect 0x1000 build/bootloader/bootloader.bin 
-0x10000 build/console.bin 
-0x8000 build/partitions_example.bin
-```
-
-## 2 ) Aanmaken usb stick voor configuraties:
-
-a ) configuratie van wifi network
 Flash usb and make a CONFIG partition
+
+On terminal on MacOS this can be done by typing in the following code:
 diskutil eraseDisk FAT32 CONFIG <yourdisk>
 
-maak file aan: 
 
-network/system-connections
+On Windows this van be done via Putty by tying in the following code: 
+...... {E}
 
-met dit als inhoud:
+You can also use the diskutility (MacOS) or .... {E} on Windows
 
-```
+
+Make a folder on this disk called network en within this folder a file called my-network
+Your data structure should look like:
+
+
+network/my-network
+
+(? network/system-connections ?)
+
+The content of the file should have the following structure:
+
+#########
 [connection]
 id= HassOS-network
 uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> deze zelf genereren op: https://www.uuidgenerator.net>
@@ -137,14 +96,14 @@ type=802-11-wireless
 
 [802-11-wireless]
 mode=infrastructure
-ssid=MY_SSID
+ssid=<MY_SSID>
 # Uncomment below if your SSID is not broadcasted
 #hidden=true
 
 [802-11-wireless-security]
 auth-alg=open
 key-mgmt=wpa-psk
-psk=MY_WLAN_SECRET_KEY
+psk=<MY_WLAN_SECRET_KEY>
 
 [ipv4]
 method=auto
@@ -152,19 +111,45 @@ method=auto
 [ipv6]
 addr-gen-mode=stable-privacy
 method=auto
-```
+#########
 
-b ) Configuratie voor benadering middels SSH (nog invullen of niet? terminal kan ook via zijpaneel worden benaderd. Veiliger?)
+Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 
-## 3 ) Etchen van de SD kaart met HASS.IO
 
-Download en installeer balenaEtcher van https://www.balena.io/etcher/
+## Step 3b - Configure network settings by adding files to the USB (has to be done on Windows) {E}
 
-Download de juiste image voor je Raspberry PI 3 of 4. Kies de voorgeschreven versie.: https://www.home-assistant.io/hassio/installation/
 
-Etch de image met baleno image etcher op je SD kaart.
+## Step 4 Etching HASS.IO on the SD card
 
-## 4 ) ADD-ONS
+We will download and install the hass (home assistant) disk image on the micro-SD card according to the intructions on the home assistant website [link](https://www.home-assistant.io/hassio/installation/)
+
+Please check the version u want to install and use the recommended version for your board (Raspberry PI 3+ or Raspberry PI 4)
+
+Also download and install balena etcher from [this](https://www.balena.io/etcher/)  website. 
+
+When done, use balena etcher to etch the downloaded image from HASS.IO on the SD card. 
+
+## Step 5 Starting up your Raspberry PI with HASS.IO
+
+After you put both the SD card and the USB stick with the network specifications in you Raspberry PI. U can powerup your Raspberry PI.
+
+At start the Raspberry PI will download some additional files. With a normal internet connection this will take approximately 20 minuts
+
+After these 20 minuts you can you can follow [this](http://homeassistant.local:8123) link to upen up the Home Assistant window.
+
+Here you fill in your prefered credentials for logging in. 
+
+Your Home Assistant is now active
+
+
+
+## Step 6 Adding a The Things Sensor node
+
+Within home assistant you can add ADD-ONS. 
+
+Go to Hass.io in the side panel and click on the tab "ADD-ONS" 
+
+Here 
 
 a) OpenSSH - Terminal
 
