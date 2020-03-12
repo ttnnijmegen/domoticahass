@@ -187,7 +187,10 @@ nano configurations.yaml
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/USETERMINALTOADJUSTYAML.png)
 
-In the YAML file you should add the sensor by adding the following code:
+In the YAML file which looks like this in the beginning:
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/YAMLfirst.png)
+
+you should add the sensor by adding the following code:
 
 ```
 
@@ -211,11 +214,6 @@ sensor:
       temperature_4: Temperature
 ```
 
-The file should look like this:
-
-![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/AddingTTNApplicationAndDeviceSensorToYAML.png)
-
-(the header comments differ)
 
 You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configurations.yaml file. 
 
