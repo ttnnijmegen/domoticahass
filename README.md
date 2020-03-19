@@ -13,7 +13,7 @@ This time we will use an exiting TTN sensor node, one of the next times we will 
 - Raspberry Pi matching power supply with a minimal power of 2A. 
 -  Micro-SD card, we recommend at least a 32 GB SD card to avoid running out of space, and a SD card reader. The SD card needs to be of [Class A2](https://www.mymemory.co.uk/blog/a1-vs-a2-sandisk-microsd-card-whats-the-difference/). You can order such an SD card for example from [data.io](https://www.dataio.nl/sandisk-extreme-64gb-microsd-geheugenkaart-u3/?utm_campaign=SanDisk+Extreme+64GB+microSD+geheugenkaart+U3+A2+160MB/s&utm_content=&utm_source=googleshopping&utm_medium=cpc&utm_term=&gclid=EAIaIQobChMI4qTSmZWT6AIVEOJ3Ch0eegaFEAQYASABEgJh5vD_BwE).
 - A USB stick is handy to exchange files between computers.(named CONFIG and FAT32 structured)
-- ESP8266 development board. We will use this as your personal network access point to access the Raspberry PI from, so that you can easily take your Raspberry Pi home without having to reconfigure the wireless. The ESP8266 device could e.g. be the WEMOS d1 mini that we have used in the previous workshop as location tracker. 
+- (optional, see step 1b below) ESP8266 development board. We will use this as your personal network access point to access the Raspberry PI from, so that you can easily take your Raspberry Pi home without having to reconfigure the wireless. The ESP8266 device could e.g. be the WEMOS d1 mini that we have used in the previous workshop as location tracker. 
 
 You should also bring your home WiFi name (SSID) and password, so that we can configure the temporary network just like you have it at home. That ensures that you can take the Raspberry Pi home, and that it will connect automatically to your home wifi.
 
@@ -78,7 +78,7 @@ On Windows this van be done via Putty by tying in the following code:
 You can also use the diskutility (MacOS) or .... {E} on Windows
 
 
-Make a folder on this disk called network en within this folder a file called my-network
+Make a folder on this disk called network and within this folder a file called my-network
 Your data structure should look like:
 
 ```
@@ -91,7 +91,7 @@ The content of the file should have the following structure:
 ```
 [connection]
 id= HassOS-network
-uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> deze zelf genereren op: https://www.uuidgenerator.net>
+uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> generate this at: https://www.uuidgenerator.net>
 type=802-11-wireless
 
 [802-11-wireless]
