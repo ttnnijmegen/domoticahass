@@ -221,7 +221,7 @@ ls
 ```
 After this you can open the YAML file with the Linux text editor "NANO" by typing in 
 ```
-nano configurations.yaml
+nano configuration.yaml
 ```
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/USETERMINALTOADJUSTYAML.png)
@@ -241,7 +241,7 @@ thethingsnetwork:
 # adding the sensor entity and values
 sensor:
   - platform: thethingsnetwork
-    device_id: 05
+    device_id: '05'
     values:
       accelerometer_6.x: X movement
       accelerometer_6.y: Y movement
