@@ -254,7 +254,7 @@ sensor:
 ```
 
 
-You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configurations.yaml file. 
+You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configuration.yaml file. 
 
 After these changes reboot the system for them to take effect.
 (hass.io==>system==>reboot)
