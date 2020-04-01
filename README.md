@@ -116,8 +116,14 @@ method=auto
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 
 
-## Step 3b - Configure network settings by adding files to the USB (has to be done on Windows) {E}
+## Step 3b - Configure network settings by adding files to the USB (has to be done on Windows)
 
+Insert to an USB-disk in the Windows PC
+Open the USB-disk in the Windows Explorer. We assume the driveletter D: is assigned to the USB drive
+Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost)
+Create a folder D:\network\my-network\
+Create a file my-network in the folder D:\network\my-network\
+The content of the file should have the same structure as mentioned above.
 
 ## Step 4 Etching HASS.IO on the SD card
 
