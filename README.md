@@ -421,8 +421,31 @@ sensor:
       - estore
 ```
 
+replace IP_ADRESS with the ip adress of the TTN gateway in your network.
 
+To group the badges in your display. Adjust the goups.yaml by adding the following lines of code
 
+```
+# Example groups.yaml entry
+
+TTN Gateway:
+  - sensor.ttn_gw_hardware_version
+  - sensor.ttn_gw_bootloader_version
+  - sensor.ttn_gw_firmware_version
+  - sensor.ttn_gw_uptime
+  - sensor.ttn_gw_connected
+  - sensor.ttn_gw_interface
+  - sensor.ttn_gw_gateway
+  - sensor.ttn_gw_ssid
+  - sensor.ttn_gw_activation_locked
+  - sensor.ttn_gw_configured
+  - sensor.ttn_gw_region
+  - sensor.ttn_gw_gateway_card
+  - sensor.ttn_gw_broker_connected
+  - sensor.ttn_gw_packets_up
+  - sensor.ttn_gw_packets_down
+  - sensor.ttn_gw_external_storage
+```
 
 
 
