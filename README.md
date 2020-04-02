@@ -21,6 +21,7 @@ We will commence this workshop according to the recommended installation for Hom
 
 https://www.home-assistant.io/getting-started/
 
+## STEP 1 is only applicable when doing this workshop at hackerspace Nijmegen. For the online version through Google Hangouts we start at step 2.
 ## Step 1a (simple) - configure the wifi like home
 
 Use your mobile phone to make a WiFi hotspot. Configure it such that the SSID (network name) and password match that of your wifi network at home. 
@@ -64,7 +65,7 @@ You can also use the serial interface, e.g. using the Arduino IDE serial monitor
     reset
     
 
-## Step 3a - Configure the network settings by USB
+## Step 2a - Configure the network settings by USB
 
 Flash usb and make a CONFIG partition
 
@@ -84,7 +85,6 @@ Your data structure should look like:
 ```
 network/my-network
 ```
-(? network/system-connections ?)
 
 The content of the file should have the following structure:
 
@@ -116,7 +116,7 @@ method=auto
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 
 
-## Step 3b - Configure network settings by adding files to the USB (has to be done on Windows)
+## Step 2b - Configure network settings by adding files to the USB (has to be done on Windows)
 
 - Insert to an USB-disk in the Windows PC.
 - Open the USB-disk in the Windows Explorer. We assume the driveletter D: is assigned to the USB drive.
@@ -125,7 +125,7 @@ Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 - Create a file my-network in the folder D:\network\my-network\
 - The content of the file should have the same structure as mentioned above.
 
-## Step 4 Etching HASS.IO on the SD card
+## Step 3 Etching HASS.IO on the SD card
 
 We will download and install the hass (home assistant) disk image on the micro-SD card according to the intructions on the home assistant website [link](https://www.home-assistant.io/hassio/installation/)
 
@@ -174,18 +174,33 @@ method=auto
 
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 
-## Step 5 Starting up your Raspberry PI with HASS.IO
+## Step 4 Starting up your Raspberry PI with HASS.IO
 
 After you put both the SD card and the USB stick with the network specifications in you Raspberry PI. U can powerup your Raspberry PI.
 
 At start the Raspberry PI will download some additional files. With a normal internet connection this will take approximately 20 minuts
 
-After these 20 minuts you can you can follow [this](http://homeassistant.local:8123) link to upen up the Home Assistant window.
+After these 20 minuts you can you can follow [this](http://homeassistant.local:8123) link to upen up the Home Assistant window. The home assistant link is: http://homeassistant.local:8123
 
 Here you fill in your prefered credentials for logging in. 
 
-Your Home Assistant is now active
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantfirstuser.png)
 
+You can name your house
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthouse.png)
+
+And add integrations
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantaddintegrations.png)
+
+Please add the integrations: 
+- Coronavirus
+- Luftdaten
+
+Integrations can also be added at a later stage within the user interface of home assistant. 
+
+Your Home Assistant is now active
 
 
 ## Step 6 Adding a The Things Sensor node
@@ -258,12 +273,22 @@ sensor:
       relative_humidity_3: Relative humidity
       temperature_4: Temperature
 ```
-
-
 You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configuration.yaml file. 
+
+
+Now check your configuration with server control
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantservercontrol.png)
+
+And validate your configuration
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantvalidateconfiguration.png)
+
 
 After these changes reboot the system for them to take effect.
 (hass.io==>system==>reboot)
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantreboot.png)
 
 The rebooted system now has the sensors activated. 
 
@@ -280,25 +305,68 @@ You can now add the different sensor entities to your dashboard
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/LoRaKISSSensorAsEntity.png)
 
 
-## Step 6 automation with node red ==> verder uitwerken met een leuke automation die relevant is (e.g. licht levels na zonsondergang omhoog geven aan dat er iemand in HS is. of temperatuur controle voor 3D printen)
+## Step 6 automation with node red 
 
-b) NODE-RED
+Install node-red 
 
-Installeer en zet bij de config 
-ssl:false   in plaats van true
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantnodered.png)
 
-Geef ook een credential secret in. Bijvoorbeeld:
-credential_secret: 'HASS'
+And check the box next to side panel to make the node red icon apear in the side panel
 
-Save
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantnoderedsidepanel.png)
+
+Add credential_secret to the configuration and put in false with ssl.
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantnoderedconfig.png)
+
+
+You may save these settings and start node-red. Check the log if everything goes according to plan without errors. 
 
 
 ## Step 7 Installatie van HACS and installing the kickstarter gateway monitor ==> beter uitzoeken hoe goed het werkt
 
-For terminal installation via SSH see <https://beta--hacs.netlify.com/installation/terminal>
+Start up your terminal within HASS. Make a directory called custom_components in your config directory
 
-- https://www.youtube.com/channel/UC7G4tLa4Kt6A9e3hJ-HO8ng
-- https://peyanski.com/home-assistant-themes-and-plugins-with-hacs/
+```
+cd config
+mkdir custom_components
+
+```
+Download HACS in this directory with copying and pasting the following commands
+
+```
+git clone https://github.com/custom-components/hacs.git hacs_temp
+cd hacs_temp
+git checkout $(git describe --tags --always $(git rev-list --tags --max-count=1000) | grep -e "[0-9]\+\.[0-9]\+\.[0-9]\+$" | head -n 1)
+cd ../
+cp -r hacs_temp/custom_components/hacs hacs
+rm -R hacs_temp
+```
+The folder structure within the config folder should look like following. It is important that the custom_components folder is within the same folder where the configuration.yaml resides.  
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantfolderstructurehacs.png)
+
+Now restart your home assistant server
+
+The next step involves getting your personal tokens from your github account. So be sure to have one. 
+
+Within the config folder adjust the configuration.yaml with
+```
+nano configuration.yaml
+```
+
+And add the following line
+```
+hacs:
+  token: d73jds8f73jkr9d8sufv2br8sd9fy92nr9f80u23r97fhse (Don't copy+paste this token, create your own)
+```
+Use your own tokens you generated at your own github account. 
+
+If you are unsure how to generate these tokens. [this](https://beta--hacs.netlify.com/installation/configuration) link will give you an explanation
+
+
+
+
 
 
 ## add the kickstarter gateway you your Home Assistant Dashboard
