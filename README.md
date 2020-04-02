@@ -346,8 +346,6 @@ The folder structure within the config folder should look like following. It is 
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantfolderstructurehacs.png)
 
-Now restart your home assistant server
-
 The next step involves getting your personal tokens from your github account. So be sure to have one. 
 
 Within the config folder adjust the configuration.yaml with
@@ -364,13 +362,73 @@ Use your own tokens you generated at your own github account.
 
 If you are unsure how to generate these tokens. [this](https://beta--hacs.netlify.com/installation/configuration) link will give you an explanation
 
+Now restart your home assistant server
+
+After restart (this might take some time)
+
+You will see hacs installed in the side panel. If you click on hacks you see the following sequence of severall screens where you can click further. 
+
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistenthacswelcome.png)
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistenthacsintroductione.png)
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacsbackgroudtask.png)
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacswarning.png)
+
+these are explanations of hacs including a warning
+
+After clicking all the way. You can go to integrations and fill in thing in the search area. TTN Gateway configuration will be shown
+
+homeassistanthacssearch.png
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacssearch.png)
+
+Install this integration.
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacsinstallgateway.png)
+
+
+As with all integrations you have to adjust you configuration.yaml file. How to do this is shown a little more down in the integration. 
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacsconfiguregateway.png)
+
+so we adjust the configuration.yaml file by opening the yaml file in the terminal with the command;
+
+```
+nano configuration.yaml
+```
+
+And add the following text below
+```
+# Example configuration.yaml entry
+
+sensor:
+  - platform: ttn_gateway
+    host: IP_ADDRESS
+    scan_interval: 10
+    resources:
+      - gateway
+      - hwversion
+      - blversion
+      - fwversion
+      - uptime
+      - connected
+      - interface
+      - ssid
+      - activationlocked
+      - configured
+      - region
+      - gwcard
+      - brokerconnected
+      - packetsup
+      - packetsdown
+      - estore
+```
 
 
 
 
 
-## add the kickstarter gateway you your Home Assistant Dashboard
-- Gateway toevoegen, zie https://github.com/cyberjunky/home-assistant-ttn_gateway
+
+
+
+
 
 wanne have hacs
 
