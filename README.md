@@ -447,29 +447,7 @@ TTN Gateway:
   - sensor.ttn_gw_external_storage
 ```
 
-
-
-
-
-
-
-wanne have hacs
-
-- https://github.com/cyberjunky/home-assistant-ttn_gateway
-- https://github.com/davidmstraub/homeassistant-homeconnect
-- https://github.com/gcobb321/icloud3
-- https://github.com/gieljnssns/buienalarm-sensor-homeassistant
-- https://github.com/limych/ha-gismeteo
-- https://github.com/r-renato/hass-xiaomi-mi-flora-and-flower-care
-- https://github.com/vinteo/hass-opensprinkler
-- https://github.com/tybritten/ical-sensor-homeassistant
-- https://github.com/r-renato/hass-xiaomi-mi-flora-and-flower-care
-- https://github.com/rodbr/miflora-card
-- https://github.com/cyberjunky/home-assistant-ttn_gateway
-
-
-
-
+# The End
 
 
 
