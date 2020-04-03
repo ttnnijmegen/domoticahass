@@ -203,7 +203,8 @@ Integrations can also be added at a later stage within the user interface of hom
 Your Home Assistant is now active
 
 
-## Step 6 Adding a The Things Sensor node
+## Step 5 Adding a The Things Sensor node
+
 On basis of this tutorial a sensor can be added to HASS: [HASS and TTN](https://www.home-assistant.io/integrations/thethingsnetwork/)
 
 Within home assistant you can add ADD-ONS. 
@@ -305,7 +306,7 @@ You can now add the different sensor entities to your dashboard
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/LoRaKISSSensorAsEntity.png)
 
 
-## Step 6 automation with node red 
+## Step 7 automation with node red 
 
 Install node-red 
 
@@ -319,11 +320,13 @@ Add credential_secret to the configuration and put in false with ssl.
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantnoderedconfig.png)
 
-
 You may save these settings and start node-red. Check the log if everything goes according to plan without errors. 
 
+Within node-red you can now add automations. You can for example retrieve more data from external resources like home-kit.
 
-## Step 7 Installatie van HACS and installing the kickstarter gateway monitor ==> beter uitzoeken hoe goed het werkt
+## Step 8 Installatie van HACS and installing the kickstarter gateway monitor 
+
+# if you don't have the kickstarter gateway you can skip this step
 
 Start up your terminal within HASS. Make a directory called custom_components in your config directory
 
@@ -446,6 +449,45 @@ TTN Gateway:
   - sensor.ttn_gw_packets_down
   - sensor.ttn_gw_external_storage
 ```
+## Step 9 adding information to the overview screen
+
+Now we have added a lot of integrations and data sources it is time to add them to the overview screen. 
+
+Home assistant has a variaty of available visualisations. You can look for them yourself. 
+
+Here we give you just one example.
+
+To add data to your overview. You use configure to change the overview page
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistanthacsconfiguregateway.png)
+
+After this you can adjust existing pages and add new ones. 
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantaddnewscreen.png)
+
+You can add icons to the different tabs by adding an icon short code
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronadashboard.png)
+
+The icons can be found icon short code can be found on [this](https://materialdesignicons.com) link.
+Not all icons are included in home assistant. If the icon doesn't show it's eighter not included (yet) or you misspelt the shortcut. 
+
+Clicking on the plus you get a screen which shows you visualisation possibilities
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronaadd1.png)
+
+For example history charts. You can populate the history chart with severall entities
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronaadd2.png)
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronaadd3.png)
+
+By clicking on the pensil in the tab you can adjust the viewing settings and switch this to panel settings for a full screen view.
+
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronapanel.png)
+
+Now you can track whether the lockdown will probably by extended or not... 
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/homeassistantcoronahistory.png)
+
 
 # The End
 
