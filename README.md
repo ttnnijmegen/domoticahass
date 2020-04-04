@@ -65,18 +65,14 @@ You can also use the serial interface, e.g. using the Arduino IDE serial monitor
     reset
     
 
-## Step 2a - Configure the network settings by USB
+## Step 2a - Configure the network settings by USB (MacOS)
 
 Flash usb and make a CONFIG partition
 
 On terminal on MacOS this can be done by typing in the following code:
 diskutil eraseDisk FAT32 CONFIG <yourdisk>
 
-
-On Windows this van be done via Putty by tying in the following code: 
-...... {E}
-
-You can also use the diskutility (MacOS) or .... {E} on Windows
+You can also use the diskutility.
 
 
 Make a folder on this disk called network and within this folder a file called my-network
@@ -114,15 +110,15 @@ method=auto
 ```
 
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
+[source](https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md)
 
-
-## Step 2b - Configure network settings by adding files to the USB (has to be done on Windows)
+## Step 2b - Configure the network settings by USB (Windows)
 
 - Insert to an USB-disk in the Windows PC.
 - Open the USB-disk in the Windows Explorer. We assume the driveletter D: is assigned to the USB drive.
-- Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost).
-- Create a folder D:\network\my-network\
-- Create a file my-network in the folder D:\network\my-network\
+- Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). In the Windows Explorer right-click on the assigned drive-letter (here D:\)
+- Create a folder D:\network\
+- Create a file named 'my-network' (without extension) in the folder D:\network\
 - The content of the file should have the same structure as mentioned above.
 
 ## Step 3 Etching HASS.IO on the SD card
