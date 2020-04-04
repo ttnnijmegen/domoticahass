@@ -100,9 +100,10 @@ method=auto
 addr-gen-mode=stable-privacy
 method=auto
 ```
-
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
-[source](https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md)
+Download the [my-network](https://github.com/ttnnijmegen/domoticahass/blob/master/src/my-network) file.
+
+Additional info can be found [here](https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md)
 
 ## Step 2a - Configure the network settings by USB (MacOS)
 

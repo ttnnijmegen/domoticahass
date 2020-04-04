@@ -1,0 +1,22 @@
+[connection]
+id= HassOS-network
+uuid=<72111c67-4a5d-4d5c-925e-f8ee26efb3c3 ==> generate this at: https://www.uuidgenerator.net>
+type=802-11-wireless
+
+[802-11-wireless]
+mode=infrastructure
+ssid=<MY_SSID>
+# Uncomment below if your SSID is not broadcasted
+#hidden=true
+
+[802-11-wireless-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=<MY_WLAN_SECRET_KEY>
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
