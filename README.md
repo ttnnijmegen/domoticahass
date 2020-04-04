@@ -65,18 +65,10 @@ You can also use the serial interface, e.g. using the Arduino IDE serial monitor
     reset
     
 
-## Step 2a - Configure the network settings by USB (MacOS)
+## Step 2 - Configure the network settings by USB
+Flash usb and make a CONFIG partition (see step 2a for MacOS or 2b for Windows)
 
-Flash usb and make a CONFIG partition
-
-On terminal on MacOS this can be done by typing in the following code:
-diskutil eraseDisk FAT32 CONFIG <yourdisk>
-
-You can also use the diskutility.
-
-
-Make a folder on this disk called network and within this folder a file called my-network
-Your data structure should look like:
+Make a folder on this disk called 'network' and within this folder a file called 'my-network' (without extension).
 
 ```
 network/my-network
@@ -112,14 +104,26 @@ method=auto
 Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
 [source](https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md)
 
+## Step 2a - Configure the network settings by USB (MacOS)
+
+On terminal on MacOS this can be done by typing in the following code:
+diskutil eraseDisk FAT32 CONFIG <yourdisk>
+
+You can also use the diskutility.
+
+Make a folder on this disk called network and within this folder a file called my-network
+Your data structure should look like the structure as above.
+
 ## Step 2b - Configure the network settings by USB (Windows)
 
-- Insert to an USB-disk in the Windows PC.
-- Open the USB-disk in the Windows Explorer. We assume the driveletter D: is assigned to the USB drive.
-- Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). In the Windows Explorer right-click on the assigned drive-letter (here D:\)
-- Create a folder D:\network\
-- Create a file named 'my-network' (without extension) in the folder D:\network\
-- The content of the file should have the same structure as mentioned above.
+Insert an USB-disk in the Windows PC. Open the USB-disk in the Windows Explorer. 
+We assume the driveletter D: is assigned to the USB drive.
+
+Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). Right-click on the assigned drive-letter (here D:\) and select format.
+![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/WindowsFormat.png)
+
+Make a folder on this disk called network and within this folder a file called my-network
+Your data structure should look like the structure as above.
 
 ## Step 3 Etching HASS.IO on the SD card
 
