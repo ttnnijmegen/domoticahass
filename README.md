@@ -199,7 +199,7 @@ And add integrations
 
 Please add the integrations: 
 - Coronavirus
-- Luftdaten
+- Luftdaten (number 21305)
 
 Integrations can also be added at a later stage within the user interface of home assistant. 
 
