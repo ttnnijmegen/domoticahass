@@ -100,7 +100,8 @@ method=auto
 addr-gen-mode=stable-privacy
 method=auto
 ```
-Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings
+Replace <MY_SSID> and <MY_WLAN_SECRET_KEY> with your own network settings.
+
 Download the [my-network](https://github.com/ttnnijmegen/domoticahass/blob/master/src/my-network) file.
 
 Additional info can be found [here](https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md)
@@ -121,6 +122,7 @@ Insert an USB-disk in the Windows PC. Open the USB-disk in the Windows Explorer.
 We assume the driveletter D: is assigned to the USB drive.
 
 Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). Right-click on the assigned drive-letter (here D:\) and select format.
+
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/WindowsFormat.png)
 
 Make a folder on this disk called network and within this folder a file called my-network
