@@ -220,7 +220,7 @@ The ADD-ON you will first install is Terminal.
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/INSTALLTERMINAL.png)
 
-Search for terminal or ssh in the search bar. 
+Search for terminal or ssh in the search bar. You might find another SSH terminal as on the picture below. This is because HASS needs to load all it's add-ons in the background. It's ok. You can use another one. 
 
 After installing ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/INSTALLOPENSSH.png) OpenSSH and Terminal
 
