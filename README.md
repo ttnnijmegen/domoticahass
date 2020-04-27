@@ -266,16 +266,12 @@ thethingsnetwork:
 # adding the sensor entity and values
 sensor:
   - platform: thethingsnetwork
-    device_id: '05'
+    device_id: 'plantsensor'
     values:
-      accelerometer_6.x: X movement
-      accelerometer_6.y: Y movement
-      accelerometer_6.z: Z movement
-      analog_in_2: Potentio meter?
-      digital_in_1:
-      luminosity_5: Light intensity
-      relative_humidity_3: Relative humidity
-      temperature_4: Temperature
+      analog_out_3: Soilmoisture
+      barometer_2: Barometric pressure
+      humidity_1: Humidity
+      temperature_0: Temperature
 ```
 You can safe these changes to the YAML file by holding the ctrl button and clicking x. type yes to safe the changes to the configuration.yaml file. 
 
