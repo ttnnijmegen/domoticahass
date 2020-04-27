@@ -323,6 +323,11 @@ You may save these settings and start node-red. Check the log if everything goes
 
 Within node-red you can now add automations. You can for example retrieve more data from external resources like home-kit.
 
+The more easy way to add your TTN nodes. And a way to add more application than one is to add the nodes with node-red. 
+It is also possible to get the location of your TTN node on an Home Assistant app. This however is something for another workshop...
+
+
+
 ## Step 8 Installatie van HACS and installing the kickstarter gateway monitor 
 
 # if you don't have the kickstarter gateway you can skip this step
