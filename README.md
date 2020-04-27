@@ -264,7 +264,7 @@ thethingsnetwork:
   access_key: ttn-account-v2.Uo4q7SSN6m7I7PQMoomRSKwvOoWRUqahlqqOYEXwOdo
 
 # adding the sensor entity and values
-sensor:
+sensor ttn plantsensor:
   - platform: thethingsnetwork
     device_id: 'plantsensor'
     values:
@@ -400,7 +400,7 @@ And add the following text below
 ```
 # Example configuration.yaml entry
 
-sensor:
+sensor ttn gateway:
   - platform: ttn_gateway
     host: IP_ADDRESS
     scan_interval: 10
