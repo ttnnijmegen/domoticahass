@@ -119,9 +119,9 @@ Your data structure should look like the structure as above.
 ## Step 2b - Configure the network settings by USB (Windows)
 
 Insert an USB-disk in the Windows PC. Open the USB-disk in the Windows Explorer. 
-We assume the driveletter D: is assigned to the USB drive.
+We assume the driveletter F: is assigned to the USB drive.
 
-Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). Right-click on the assigned drive-letter (here D:\) and select format.
+Format the USB disk as FAT-32 with label CONFIG (be aware that all data on this USD drive will be lost). Right-click on the assigned drive-letter (here F:\) and select format.
 
 ![image](https://github.com/ttnnijmegen/domoticahass/blob/master/img/WindowsFormat.png)
 
